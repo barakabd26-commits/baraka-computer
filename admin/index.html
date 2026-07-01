@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — BARAKA COMPUTER</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../images/logo.png">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-card">
+      <img src="../images/logo.png" alt="Baraka Computer">
+      <h1>BARAKA COMPUTER</h1>
+      <p class="subtitle">অ্যাডমিন প্যানেলে লগইন করুন</p>
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="ইমেইল" required autocomplete="username">
+        <input type="password" id="loginPassword" placeholder="পাসওয়ার্ড" required autocomplete="current-password">
+        <button type="submit" id="loginBtn">লগইন করুন</button>
+        <div class="login-error" id="loginError"></div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>

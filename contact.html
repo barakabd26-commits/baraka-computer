@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>যোগাযোগ — BARAKA COMPUTER</title>
+<meta name="description" content="বারাকা কম্পিউটারের সাথে যোগাযোগ করুন — ফোন, ইমেইল ও ঠিকানা।">
+<link rel="icon" href="images/logo.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="contact">
+
+  <div id="noticeBar" class="notice-bar" style="display:none;"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Baraka Computer Logo" class="site-logo">
+        <span class="brand-text">BARAKA <span>COMPUTER</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">হোম</a>
+        <a href="about.html">আমাদের সম্পর্কে</a>
+        <a href="services.html">সেবাসমূহ</a>
+        <a href="gallery.html">গ্যালারি</a>
+        <a href="contact.html" class="active">যোগাযোগ</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>যোগাযোগ করুন</h2>
+        <p>যেকোনো প্রয়োজনে আমাদের সাথে যোগাযোগ করুন</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="item">
+            <div class="icon">📞</div>
+            <div><h4>ফোন</h4><p id="contactPhone">01917014656</p></div>
+          </div>
+          <div class="item">
+            <div class="icon">✉️</div>
+            <div><h4>ইমেইল</h4><p id="contactEmail">barakabd26@gmail.com</p></div>
+          </div>
+          <div class="item">
+            <div class="icon">📍</div>
+            <div><h4>ঠিকানা</h4><p id="contactAddress">Sonargaon, Narayanganj</p></div>
+          </div>
+          <div class="map-embed">
+            <iframe src="https://www.google.com/maps?q=Sonargaon%20Narayanganj&output=embed" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div>
+          <form class="contact-form" id="contactForm">
+            <input type="text" id="cf-name" placeholder="আপনার নাম" required>
+            <input type="tel" id="cf-phone" placeholder="মোবাইল নম্বর" required>
+            <textarea id="cf-message" placeholder="আপনার বার্তা লিখুন..." required></textarea>
+            <button type="submit" class="btn btn-primary">বার্তা পাঠান</button>
+            <div id="contactFormMsg" class="form-msg"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>সচরাচর জিজ্ঞাসা</h2>
+        <p>প্রায়শই জিজ্ঞাসিত প্রশ্নসমূহ</p>
+      </div>
+      <div id="faqList" style="max-width:760px; margin:0 auto;">
+        <div class="loader">লোড হচ্ছে...</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4 class="site-name">BARAKA COMPUTER</h4>
+          <p class="site-tagline">সেবা, বিশ্বাস ও প্রযুক্তির নির্ভরযোগ্য প্রতিষ্ঠান</p>
+          <div class="social-icons" style="margin-top:14px;">
+            <a href="#" class="social-facebook" target="_blank" rel="noopener" style="display:none;">f</a>
+            <a href="#" class="social-youtube" target="_blank" rel="noopener" style="display:none;">▶</a>
+            <a href="#" class="site-whatsapp-link" target="_blank" rel="noopener">W</a>
+          </div>
+        </div>
+        <div>
+          <h4>কুইক লিংক</h4>
+          <a href="about.html">আমাদের সম্পর্কে</a>
+          <a href="services.html">সেবাসমূহ</a>
+          <a href="gallery.html">গ্যালারি</a>
+          <a href="contact.html">যোগাযোগ</a>
+        </div>
+        <div>
+          <h4>যোগাযোগ</h4>
+          <p><span class="site-phone">01917014656</span></p>
+          <p class="site-email">barakabd26@gmail.com</p>
+          <p class="site-address">Sonargaon, Narayanganj</p>
+        </div>
+      </div>
+      <div class="footer-bottom">© <span id="year"></span> BARAKA COMPUTER. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="js/site.js"></script>
+</body>
+</html>

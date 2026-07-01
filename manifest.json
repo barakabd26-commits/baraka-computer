@@ -1,0 +1,16 @@
+{
+  "name": "Baraka Computer",
+  "short_name": "Baraka Computer",
+  "description": "কম্পিউটার সার্ভিস, ফটোকপি, প্রিন্ট, স্ক্যান, পাসপোর্ট ছবি ও অনলাইন আবেদন সেবা — সোনারগাঁও, নারায়ণগঞ্জ।",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0e1f4d",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

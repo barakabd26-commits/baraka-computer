@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BARAKA COMPUTER — কম্পিউটার সার্ভিস, সোনারগাঁও</title>
+<meta name="description" content="বারাকা কম্পিউটার — ফটোকপি, প্রিন্ট, স্ক্যান, পাসপোর্ট ছবি, NID, পাসপোর্ট, ভর্তি আবেদনসহ সকল কম্পিউটার সেবা। সোনারগাঁও, নারায়ণগঞ্জ।">
+<link rel="icon" href="images/logo.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+  <div id="noticeBar" class="notice-bar" style="display:none;"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Baraka Computer Logo" class="site-logo">
+        <span class="brand-text">BARAKA <span>COMPUTER</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" class="active">হোম</a>
+        <a href="about.html">আমাদের সম্পর্কে</a>
+        <a href="services.html">সেবাসমূহ</a>
+        <a href="gallery.html">গ্যালারি</a>
+        <a href="contact.html">যোগাযোগ</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1 id="heroTitle">আপনার নির্ভরযোগ্য কম্পিউটার সেবা কেন্দ্র</h1>
+        <p id="heroSubtitle">ফটোকপি, প্রিন্ট, স্ক্যান, পাসপোর্ট ছবি, NID, অনলাইন আবেদনসহ সকল কম্পিউটার সেবা এক জায়গায়।</p>
+        <div class="hero-buttons">
+          <a id="heroButton" href="services.html" class="btn btn-primary">সেবাসমূহ দেখুন</a>
+          <a href="contact.html" class="btn btn-outline">যোগাযোগ করুন</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img id="heroImage" src="images/banner.png" alt="Baraka Computer Banner">
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>আমাদের সেবাসমূহ</h2>
+        <p>আপনার সকল কম্পিউটার সংক্রান্ত প্রয়োজনে বারাকা কম্পিউটার আপনার পাশে</p>
+      </div>
+      <div class="grid" id="featuredServices">
+        <div class="loader">লোড হচ্ছে...</div>
+      </div>
+      <div style="text-align:center; margin-top:32px;">
+        <a href="services.html" class="btn btn-primary">সকল সেবা দেখুন</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>গ্রাহকদের মতামত</h2>
+        <p>আমাদের গ্রাহকরা যা বলছেন</p>
+      </div>
+      <div class="grid" id="reviewGrid">
+        <div class="loader">লোড হচ্ছে...</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4 class="site-name">BARAKA COMPUTER</h4>
+          <p class="site-tagline">সেবা, বিশ্বাস ও প্রযুক্তির নির্ভরযোগ্য প্রতিষ্ঠান</p>
+          <div class="social-icons" style="margin-top:14px;">
+            <a href="#" class="social-facebook" target="_blank" rel="noopener" style="display:none;">f</a>
+            <a href="#" class="social-youtube" target="_blank" rel="noopener" style="display:none;">▶</a>
+            <a href="#" class="site-whatsapp-link" target="_blank" rel="noopener">W</a>
+          </div>
+        </div>
+        <div>
+          <h4>কুইক লিংক</h4>
+          <a href="about.html">আমাদের সম্পর্কে</a>
+          <a href="services.html">সেবাসমূহ</a>
+          <a href="gallery.html">গ্যালারি</a>
+          <a href="contact.html">যোগাযোগ</a>
+        </div>
+        <div>
+          <h4>যোগাযোগ</h4>
+          <p><span class="site-phone">01917014656</span></p>
+          <p class="site-email">barakabd26@gmail.com</p>
+          <p class="site-address">Sonargaon, Narayanganj</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © <span id="year"></span> BARAKA COMPUTER. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script type="module" src="js/site.js"></script>
+</body>
+</html>

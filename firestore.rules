@@ -1,0 +1,71 @@
+rules_version = '2';
+
+// ============================================================
+// BARAKA COMPUTER — Firestore Security Rules
+//
+// Model used in this project: a SINGLE admin (whichever account
+// you create in Firebase Authentication). Any signed-in user is
+// treated as the admin. If you later need multiple staff accounts
+// with different permissions, add a `users` collection with roles
+// and check `request.auth.uid` against it here.
+// ============================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Public content — anyone can read, only the signed-in admin can write.
+    match /settings/{docId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    match /homepage/{docId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    match /about/{docId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    match /services/{docId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    match /gallery/{docId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    match /reviews/{docId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    match /faq/{docId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+    match /notice/{docId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+    }
+
+    // Contact form messages — anyone can SEND a message (create),
+    // but only the admin can read, update (mark as read), or delete them.
+    match /messages/{docId} {
+      allow create: if true;
+      allow read, update, delete: if isSignedIn();
+    }
+
+    // Internal admin activity log — admin only.
+    match /activity/{docId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // Everything else: locked down by default.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

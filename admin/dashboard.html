@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — BARAKA COMPUTER Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../images/logo.png">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="admin-layout">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <img src="../images/logo.png" alt="logo">
+      <span>BARAKA ADMIN</span>
+    </div>
+    <nav id="sideNav">
+      <a data-panel="overview" class="active">🏠 ওভারভিউ</a>
+      <a data-panel="homepage">🖼️ হোমপেজ</a>
+      <a data-panel="about">ℹ️ আমাদের সম্পর্কে</a>
+      <a data-panel="services">🛠️ সেবাসমূহ</a>
+      <a data-panel="gallery">🖼️ গ্যালারি</a>
+      <a data-panel="reviews">⭐ রিভিউ</a>
+      <a data-panel="faq">❓ FAQ</a>
+      <a data-panel="notice">📢 নোটিশ</a>
+      <a data-panel="messages">✉️ মেসেজ ইনবক্স</a>
+      <a data-panel="settings">⚙️ সেটিংস</a>
+    </nav>
+    <div class="logout-btn" id="logoutBtn">লগআউট</div>
+  </aside>
+
+  <main class="main">
+    <button class="menu-btn" id="menuBtn">☰ মেনু</button>
+    <div class="topbar">
+      <h2 id="panelTitle">ওভারভিউ</h2>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <span class="who" id="whoAmI"></span>
+        <button class="theme-toggle" id="themeToggle">🌙 ডার্ক মোড</button>
+      </div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <section class="panel active" id="panel-overview">
+      <div class="stat-grid">
+        <div class="stat-card"><div class="num" id="statServices">-</div><div class="label">সেবা</div></div>
+        <div class="stat-card"><div class="num" id="statGallery">-</div><div class="label">গ্যালারি ছবি</div></div>
+        <div class="stat-card"><div class="num" id="statReviews">-</div><div class="label">রিভিউ</div></div>
+        <div class="stat-card"><div class="num" id="statMessages">-</div><div class="label">না পড়া মেসেজ</div></div>
+      </div>
+      <div class="card-box">
+        <h3>দ্রুত লিংক</h3>
+        <p style="color:var(--text-muted); font-size:14px; line-height:1.9;">
+          এই প্যানেল থেকে হোমপেজ, সেবাসমূহ, গ্যালারি, রিভিউ, FAQ, নোটিশ, সেটিংস — সবকিছু পরিবর্তন করলে সাথে সাথে ওয়েবসাইটে দেখা যাবে।
+        </p>
+      </div>
+    </section>
+
+    <!-- HOMEPAGE -->
+    <section class="panel" id="panel-homepage">
+      <div class="card-box">
+        <h3>হিরো সেকশন</h3>
+        <div class="form-row">
+          <div class="form-group"><label>টাইটেল</label><input id="hp-title"></div>
+          <div class="form-group"><label>সাবটাইটেল</label><input id="hp-subtitle"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>বাটন টেক্সট</label><input id="hp-buttonText"></div>
+          <div class="form-group"><label>বাটন লিংক</label><input id="hp-buttonLink" placeholder="services.html"></div>
+        </div>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label>ব্যানার ইমেজ পাথ (images/ ফোল্ডারে আপলোড করে পাথ দিন)</label>
+          <input id="hp-bannerImage" placeholder="images/banner.png">
+        </div>
+        <button class="btn btn-primary" id="hp-save">সংরক্ষণ করুন</button>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="panel" id="panel-about">
+      <div class="card-box">
+        <h3>আমাদের সম্পর্কে</h3>
+        <div class="form-group" style="margin-bottom:14px;"><label>টাইটেল</label><input id="ab-title"></div>
+        <div class="form-group" style="margin-bottom:14px;"><label>বিবরণ</label><textarea id="ab-description"></textarea></div>
+        <div class="form-row">
+          <div class="form-group"><label>Mission</label><textarea id="ab-mission"></textarea></div>
+          <div class="form-group"><label>Vision</label><textarea id="ab-vision"></textarea></div>
+        </div>
+        <div class="form-group" style="margin:14px 0;"><label>ইমেজ পাথ</label><input id="ab-image" placeholder="images/banner.png"></div>
+        <button class="btn btn-primary" id="ab-save">সংরক্ষণ করুন</button>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="panel" id="panel-services">
+      <div class="card-box">
+        <h3 id="svc-form-title">নতুন সেবা যুক্ত করুন</h3>
+        <input type="hidden" id="svc-id">
+        <div class="form-row">
+          <div class="form-group"><label>টাইটেল</label><input id="svc-title"></div>
+          <div class="form-group"><label>আইকন (ইমোজি)</label><input id="svc-icon" placeholder="🖨️"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>মূল্য (ঐচ্ছিক)</label><input id="svc-price" placeholder="৫০ টাকা থেকে"></div>
+          <div class="form-group"><label>অর্ডার (নম্বর)</label><input id="svc-order" type="number" value="1"></div>
+        </div>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label>ইমেজ পাথ (ঐচ্ছিক — আগে images/services/ ফোল্ডারে ছবি আপলোড করুন)</label>
+          <input id="svc-image" placeholder="images/services/photocopy.jpg">
+        </div>
+        <div class="form-group" style="margin-bottom:14px;"><label>বিবরণ</label><textarea id="svc-description"></textarea></div>
+        <div class="form-group" style="margin-bottom:14px;">
+          <label>স্ট্যাটাস</label>
+          <select id="svc-status"><option value="active">সক্রিয়</option><option value="inactive">নিষ্ক্রিয়</option></select>
+        </div>
+        <button class="btn btn-primary" id="svc-save">সংরক্ষণ করুন</button>
+        <button class="btn btn-secondary" id="svc-cancel" style="display:none;">বাতিল</button>
+      </div>
+      <div class="card-box">
+        <h3>সকল সেবা</h3>
+        <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>ছবি</th><th>#</th><th>টাইটেল</th><th>মূল্য</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
+          <tbody id="svc-table-body"></tbody>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="panel" id="panel-gallery">
+      <div class="card-box">
+        <h3 id="gal-form-title">নতুন ছবি যুক্ত করুন</h3>
+        <input type="hidden" id="gal-id">
+        <p style="color:var(--text-muted); font-size:13.5px; margin-bottom:12px;">
+          ছবি আগে <code>images/gallery/</code> ফোল্ডারে আপলোড করে এখানে পাথ দিন। যেমন: <code>images/gallery/photo1.jpg</code>
+        </p>
+        <div class="form-row">
+          <div class="form-group"><label>ইমেজ পাথ</label><input id="gal-imageUrl" placeholder="images/gallery/photo1.jpg"></div>
+          <div class="form-group"><label>ক্যাটাগরি</label><input id="gal-category" placeholder="দোকান / সেবা / ইভেন্ট"></div>
+          <div class="form-group"><label>অর্ডার</label><input id="gal-order" type="number" value="1"></div>
+        </div>
+        <button class="btn btn-primary" id="gal-save">সংরক্ষণ করুন</button>
+        <button class="btn btn-secondary" id="gal-cancel" style="display:none;">বাতিল</button>
+      </div>
+      <div class="card-box">
+        <h3>সকল ছবি</h3>
+        <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>ছবি</th><th>ক্যাটাগরি</th><th>অর্ডার</th><th>অ্যাকশন</th></tr></thead>
+          <tbody id="gal-table-body"></tbody>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="panel" id="panel-reviews">
+      <div class="card-box">
+        <h3 id="rv-form-title">নতুন রিভিউ যুক্ত করুন</h3>
+        <input type="hidden" id="rv-id">
+        <div class="form-row">
+          <div class="form-group"><label>গ্রাহকের নাম</label><input id="rv-name"></div>
+          <div class="form-group"><label>রেটিং (১-৫)</label><input id="rv-rating" type="number" min="1" max="5" value="5"></div>
+          <div class="form-group">
+            <label>স্ট্যাটাস</label>
+            <select id="rv-status"><option value="active">প্রদর্শিত হবে</option><option value="inactive">লুকানো</option></select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:14px;"><label>রিভিউ টেক্সট</label><textarea id="rv-text"></textarea></div>
+        <button class="btn btn-primary" id="rv-save">সংরক্ষণ করুন</button>
+        <button class="btn btn-secondary" id="rv-cancel" style="display:none;">বাতিল</button>
+      </div>
+      <div class="card-box">
+        <h3>সকল রিভিউ</h3>
+        <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>নাম</th><th>রেটিং</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
+          <tbody id="rv-table-body"></tbody>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="panel" id="panel-faq">
+      <div class="card-box">
+        <h3 id="faq-form-title">নতুন প্রশ্ন যুক্ত করুন</h3>
+        <input type="hidden" id="faq-id">
+        <div class="form-group" style="margin-bottom:14px;"><label>প্রশ্ন</label><input id="faq-question"></div>
+        <div class="form-group" style="margin-bottom:14px;"><label>উত্তর</label><textarea id="faq-answer"></textarea></div>
+        <div class="form-group" style="margin-bottom:14px; max-width:160px;"><label>অর্ডার</label><input id="faq-order" type="number" value="1"></div>
+        <button class="btn btn-primary" id="faq-save">সংরক্ষণ করুন</button>
+        <button class="btn btn-secondary" id="faq-cancel" style="display:none;">বাতিল</button>
+      </div>
+      <div class="card-box">
+        <h3>সকল প্রশ্ন</h3>
+        <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>প্রশ্ন</th><th>অর্ডার</th><th>অ্যাকশন</th></tr></thead>
+          <tbody id="faq-table-body"></tbody>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTICE -->
+    <section class="panel" id="panel-notice">
+      <div class="card-box">
+        <h3 id="nt-form-title">নতুন নোটিশ যুক্ত করুন</h3>
+        <input type="hidden" id="nt-id">
+        <div class="form-group" style="margin-bottom:14px;"><label>নোটিশ টেক্সট</label><input id="nt-text" placeholder="যেমন: আজ সকাল ১০টা পর্যন্ত বন্ধ থাকবে"></div>
+        <div class="form-group" style="margin-bottom:14px; max-width:200px;">
+          <label>স্ট্যাটাস</label>
+          <select id="nt-status"><option value="active">সক্রিয়</option><option value="inactive">নিষ্ক্রিয়</option></select>
+        </div>
+        <button class="btn btn-primary" id="nt-save">সংরক্ষণ করুন</button>
+        <button class="btn btn-secondary" id="nt-cancel" style="display:none;">বাতিল</button>
+      </div>
+      <div class="card-box">
+        <h3>সকল নোটিশ</h3>
+        <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>টেক্সট</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
+          <tbody id="nt-table-body"></tbody>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- MESSAGES -->
+    <section class="panel" id="panel-messages">
+      <div class="card-box">
+        <h3>কন্টাক্ট ফর্মের মেসেজসমূহ</h3>
+        <div style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>নাম</th><th>ফোন</th><th>বার্তা</th><th>তারিখ</th><th>স্ট্যাটাস</th><th>অ্যাকশন</th></tr></thead>
+          <tbody id="msg-table-body"></tbody>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="panel" id="panel-settings">
+      <div class="card-box">
+        <h3>ওয়েবসাইট সেটিংস</h3>
+        <div class="form-row">
+          <div class="form-group"><label>সাইটের নাম</label><input id="st-siteName"></div>
+          <div class="form-group"><label>ট্যাগলাইন</label><input id="st-tagline"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>ফোন</label><input id="st-phone"></div>
+          <div class="form-group"><label>WhatsApp নম্বর</label><input id="st-whatsapp"></div>
+          <div class="form-group"><label>ইমেইল</label><input id="st-email"></div>
+        </div>
+        <div class="form-group" style="margin-bottom:14px;"><label>ঠিকানা</label><input id="st-address"></div>
+        <div class="form-row">
+          <div class="form-group"><label>Facebook লিংক (ঐচ্ছিক)</label><input id="st-facebook"></div>
+          <div class="form-group"><label>YouTube লিংক (ঐচ্ছিক)</label><input id="st-youtube"></div>
+        </div>
+        <div class="form-group" style="margin-bottom:14px;"><label>Google Map Embed লিংক (ঐচ্ছিক)</label><input id="st-mapEmbed" placeholder="https://www.google.com/maps?...&output=embed"></div>
+        <div class="form-group" style="margin-bottom:14px;"><label>লোগো পাথ</label><input id="st-logo" placeholder="images/logo.png"></div>
+        <button class="btn btn-primary" id="st-save">সংরক্ষণ করুন</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>
