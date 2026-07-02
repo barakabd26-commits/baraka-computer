@@ -148,8 +148,9 @@ ul { list-style: none; }
 }
 .card-photo {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  max-height: 220px;
+  object-fit: contain;
+  background: var(--gray-light);
   border-radius: 10px;
   margin-bottom: 16px;
 }
@@ -157,19 +158,33 @@ ul { list-style: none; }
 .card p { color: var(--gray); font-size: 14.5px; }
 .card .price { margin-top: 12px; font-weight: 700; color: var(--red); }
 
-/* ---------- Gallery ---------- */
+/* ---------- Gallery ----------
+   Masonry-style layout: each photo keeps its OWN natural size/shape
+   (portrait, landscape, square, poster — anything) instead of being
+   cropped into a fixed box. */
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
+  column-count: 3;
+  column-gap: 18px;
 }
 .gallery-item {
+  break-inside: avoid;
+  margin-bottom: 18px;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
-  aspect-ratio: 4/3;
+  background: var(--white);
 }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 900px) {
+  .gallery-grid { column-count: 2; }
+}
+@media (max-width: 560px) {
+  .gallery-grid { column-count: 1; }
+}
 
 /* ---------- About ---------- */
 .about-grid {
@@ -265,13 +280,19 @@ form.contact-form textarea { min-height: 130px; resize: vertical; }
   font-size: 13.5px;
   color: #8b93b0;
 }
-.social-icons { display: flex; gap: 12px; }
+.social-icons { display: flex; gap: 12px; flex-wrap: wrap; }
 .social-icons a {
   width: 38px; height: 38px; border-radius: 50%;
   background: rgba(255,255,255,0.08);
   display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
-.social-icons a:hover { background: var(--red); }
+.social-icons a svg { width: 18px; height: 18px; fill: #fff; }
+.social-icons a:hover { background: var(--red); transform: translateY(-2px); }
+.social-icons a.social-facebook:hover { background: #1877f2; }
+.social-icons a.social-youtube:hover { background: #ff0000; }
+.social-icons a.site-whatsapp-link:hover { background: #25d366; }
+.social-icons a.site-email-link:hover { background: var(--red); }
 
 /* ---------- Utility ---------- */
 .loader { text-align: center; padding: 30px; color: var(--gray); }
